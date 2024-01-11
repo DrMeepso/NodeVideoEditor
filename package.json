@@ -1,0 +1,21 @@
+{
+  "name": "nodevideoeditor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@napi-rs/canvas": "^0.1.44",
+    "@types/node": "^20.11.0",
+    "fluent-ffmpeg": "^2.1.2",
+    "png.js": "^0.2.1"
+  },
+  "devDependencies": {
+    "@types/fluent-ffmpeg": "^2.1.24",
+    "@types/png.js": "^0.2.3"
+  }
+}
