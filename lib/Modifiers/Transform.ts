@@ -25,26 +25,8 @@ export class Transform {
     applyToElement(element: Element, elementCanvas: Canvas): Promise<Canvas>
     {
         return new Promise((resolve, reject) => {
-            const ctx = elementCanvas.getContext('2d')
 
-            /*
-
-            let imageData = ctx.getImageData(0, 0, elementCanvas.width, elementCanvas.height)
-            ctx.clearRect(0, 0, elementCanvas.width, elementCanvas.height)
-
-            // convert the element's width and height to a percentage
-            let width = this._elementWidth / this.width
-            let height = this._elementHeight / this.height
-
-            console.log(width, height)
-            console.log(element._parent.width, element._parent.height)
-            ctx.scale(width, height)
-
-            ctx.rotate(this.rotation * Math.PI / 180)
-
-            ctx.putImageData(imageData, this.x, this.y)
-
-            */
+            // all transform actions are done when being added to the frame canvas so this is just a placeholder
 
             resolve(elementCanvas)
         })

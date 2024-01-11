@@ -1,7 +1,6 @@
 import { createCanvas, Canvas, SKRSContext2D, ImageData as SKIAImageData } from '@napi-rs/canvas'
 import { Element, Project } from '..'
 import { ffmpeg, ffprobeGetDuration, ffprobeGetResolution } from '../ffmpeg';
-import PNGReader from "png.js";
 
 export class Video extends Element {
 
