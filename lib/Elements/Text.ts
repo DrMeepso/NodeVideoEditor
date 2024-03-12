@@ -48,4 +48,13 @@ export class Text extends Element {
         })
     }
 
+    buildSamples(): Promise<void> {
+        return new Promise((resolve, reject) => {
+            resolve()
+        })
+    }
+    getSampleAtTime(time: number): number {
+        return 0
+    }
+
 }

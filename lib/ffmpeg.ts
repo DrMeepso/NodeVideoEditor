@@ -13,7 +13,7 @@ const info = {
 
 export function ffmpeg(prams: string[]){
     
-    console.log("FFMPEG_PATH: " + process.env["FFMPEG_PATH"]!)
+    //console.log("FFMPEG_PATH: " + process.env["FFMPEG_PATH"]!)
 
     let ffmpeg = spawn(process.env["FFMPEG_PATH"]!, prams)
     info.FFInstances++
@@ -26,7 +26,7 @@ export function ffmpeg(prams: string[]){
 
 export function ffprobe(prams: string[]){
     
-    console.log("FFPROBE_PATH: " + process.env["FFPROBE_PATH"]!)
+    //console.log("FFPROBE_PATH: " + process.env["FFPROBE_PATH"]!)
 
     let ffprobe = spawn(process.env["FFPROBE_PATH"]!, prams)
     info.FFInstances++
@@ -64,6 +64,7 @@ export function waitForAllInstancesToClose() {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             if(info.FFInstances == 0){
+                console.log("All instances closed!")
                 resolve(null)
             }
         }, 100)
@@ -91,7 +92,7 @@ export async function ffprobeGetDuration(file: string): Promise<number> {
         })
 
         ffprobeExec.stderr.on('data', (chunk) => {
-            console.log(chunk.toString())
+            //console.log(chunk.toString())
         })
 
         ffprobeExec.on('close', () => {
@@ -127,7 +128,7 @@ export async function ffprobeGetResolution(file: string): Promise<{width: number
         })
 
         ffprobeExec.stderr.on('data', (chunk) => {
-            console.log(chunk.toString())
+            //console.log(chunk.toString())
         })
 
         ffprobeExec.on('close', () => {

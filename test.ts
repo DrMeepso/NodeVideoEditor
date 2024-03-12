@@ -3,11 +3,15 @@ import { Video } from "./lib/Elements/Video";
 import { Text } from "./lib/Elements/Text";
 import { waitForAllInstancesToClose } from "./lib/ffmpeg";
 
+import fs from 'fs'
+
 // set environment variable to use canvas
 process.env["FFMPEG_PATH"] = "C:/Users/theen/Desktop/NodeVideoEditor/ffmpegBin/ffmpeg.exe";
 process.env["FFPROBE_PATH"] = "C:/Users/theen/Desktop/NodeVideoEditor/ffmpegBin/ffprobe.exe";
 
 (async () => {
+
+    fs.rmSync('output.mp4', { force: true })
 
     const testProject = new Project(1920, 1080, 24)
 
@@ -17,7 +21,9 @@ process.env["FFPROBE_PATH"] = "C:/Users/theen/Desktop/NodeVideoEditor/ffmpegBin/
     const catVideo = new Video('./cat.mp4', testProject)
     catVideo.Transform.x = 1920 / 2
     catVideo.zIndex = 1
-    testProject.timeline.addElement(catVideo, 20)
+    testProject.timeline.addElement(catVideo, 24/2)
+    console.log("Samples built")
+    console.log(catVideo.samples)
 
     await waitForAllInstancesToClose() // wait for the ffprobe calls to finish
 
